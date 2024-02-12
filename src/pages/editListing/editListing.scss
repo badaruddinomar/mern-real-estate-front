@@ -1,0 +1,160 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixin.scss";
+
+.edit-listing-page {
+  width: 100%;
+  padding: 0 6rem;
+  @include tabletMedia {
+    padding: 0 2rem;
+  }
+  .heading {
+    text-align: center;
+    margin: 5rem 0;
+    font-size: 3rem;
+    font-family: $secondary-font;
+  }
+  // container--
+  .container {
+    padding: 0 2rem;
+
+    form {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      .left-div {
+        width: 500px;
+        @include phoneMedia {
+          width: 100%;
+        }
+
+        .first-div {
+          input,
+          textarea {
+            width: 500px;
+            border: none;
+            outline: none;
+            background: $light-color;
+            height: 50px;
+            padding: 0 1.5rem;
+            font-family: $primary-font;
+            margin: 1rem 0;
+            font-size: 1.6rem;
+            border-radius: 4px;
+            @include phoneMedia {
+              width: 100%;
+            }
+          }
+          textarea {
+            height: 150px;
+            padding: 1rem 1.5rem;
+            resize: none;
+            overflow-y: auto;
+          }
+        }
+        //   form second section--
+        .second-div {
+          @include flex-row;
+          div {
+            @include flex-row;
+            margin-right: 2.5rem;
+            input {
+              width: 20px;
+              height: 20px;
+              margin: 1rem 0;
+              margin-right: 0.5rem;
+            }
+            label {
+              font-size: 1.6rem;
+              font-family: $primary-font;
+            }
+          }
+        }
+        //   form third section div--
+        .third-div {
+          @include flex-row;
+          margin: 2rem 0;
+          input {
+            width: 70px;
+            height: 50px;
+            margin-right: 0.5rem;
+            border: none;
+            outline: none;
+            background: $light-color;
+            border-radius: 4px;
+            padding: 0 1rem;
+            font-family: $primary-font;
+            margin: 0.5rem 0;
+          }
+          label {
+            font-size: 1.6rem;
+            font-family: $primary-font;
+            margin: 0 0.5rem;
+          }
+        }
+      }
+    }
+    // right div--
+    .right-div {
+      width: 500px;
+      margin-left: 4rem;
+      @include tabletMedia {
+        margin-left: 0;
+      }
+      @include phoneMedia {
+        width: 100%;
+        margin-left: 0;
+      }
+      p {
+        font-size: 1.6rem;
+        font-family: $primary-font;
+        margin: 1rem 0;
+      }
+      input {
+        width: 100%;
+        background: $light-color;
+        border-radius: 4px;
+        height: 50px;
+      }
+      input[type="file"]::file-selector-button {
+        height: 100%;
+        border: none;
+        outline: none;
+        font-size: 1.6rem;
+        padding: 0 1.6rem;
+        font-family: $primary-font;
+      }
+      .image-preview {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 0.5rem;
+        img {
+          width: 95px;
+          border-radius: 4px;
+          height: 95px;
+          margin-right: 0.5rem;
+          object-fit: cover;
+          margin-bottom: 0.5rem;
+        }
+      }
+      button {
+        font-size: 1.6rem;
+        font-family: $primary-font;
+        width: 100%;
+        margin: 0.5rem 0;
+        border: none;
+        outline: none;
+        height: 50px;
+        background: $dark-color;
+        border-radius: 4px;
+        color: #fff;
+        cursor: pointer;
+        transition: all 0.23s;
+        &:hover {
+          background: $light-dark-color;
+          opacity: 0.9;
+        }
+      }
+    }
+  }
+}

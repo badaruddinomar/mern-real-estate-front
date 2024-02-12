@@ -1,0 +1,24 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixin.scss";
+
+.google-btn {
+  width: 500px;
+  font-size: 1.8rem;
+  font-family: $primary-font;
+  height: 50px;
+  border-radius: 4px;
+  background: tomato;
+  color: white;
+  margin: 1rem 0;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all 0.23s;
+  &:hover {
+    opacity: 0.9;
+    transform: translateY(2px);
+  }
+  @include phoneMedia {
+    width: 100%;
+  }
+}

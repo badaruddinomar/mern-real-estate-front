@@ -1,0 +1,194 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixin.scss";
+
+nav {
+  width: 100%;
+  height: 100px;
+  padding: 0 6rem;
+  box-shadow: $shadow;
+  z-index: 1000;
+  position: sticky;
+  top: 0;
+  left: 0;
+  background: white;
+  transition: all 0.23s;
+  @include flex-between;
+  @include tabletMedia {
+    padding: 0 3rem;
+  }
+  @include phoneMedia {
+    padding: 0 2rem;
+  }
+  //LOGO--
+  .logo {
+    font-size: 3rem;
+    font-family: $secondary-font;
+    color: $primary-color;
+    span {
+      color: $dark-color;
+    }
+  }
+  // NAV FORM
+  .nav-form {
+    @include flex-row;
+    @include phoneMedia {
+      display: none;
+    }
+
+    input {
+      border: none;
+      outline: none;
+      font-size: 1.6rem;
+      font-family: $primary-font;
+      background: aliceblue;
+      height: 50px;
+      padding: 0 1.5rem;
+      color: $dark-color;
+      width: 400px;
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px;
+      @include tabletMedia {
+        width: 300px;
+      }
+    }
+    .button {
+      font-size: 1.6rem;
+      border: none;
+      outline: none;
+      height: 50px;
+      background: $dark-color;
+      padding: 0 1.6rem;
+      cursor: pointer;
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+      transition: $transition;
+      line-height: 60px;
+      text-align: center;
+      &:hover {
+        opacity: 0.7;
+      }
+      .icon {
+        font-size: 2rem;
+        color: $white-color;
+      }
+    }
+  }
+  // NAV LINKS--
+  .links {
+    @include flex-row;
+    @include tabletMedia {
+      display: none;
+    }
+    li {
+      .link {
+        font-size: 1.8rem;
+        font-family: $secondary-font;
+        margin: 0 1.5rem;
+        color: $dark-color;
+        transition: $transition;
+        display: inline-block;
+        &:hover {
+          color: $primary-color;
+        }
+      }
+      .user {
+        text-transform: capitalize;
+        font-weight: bold;
+        position: relative;
+        @include flex-row;
+        .icon {
+          font-size: 2rem;
+        }
+        // SUB MENU STYLING--
+        .sub-menu {
+          width: 200px;
+          z-index: 1000;
+          position: absolute;
+          top: 3rem;
+          right: 0;
+          box-shadow: $shadow;
+          background: $white-color;
+          border-radius: 4px;
+          opacity: 0;
+          visibility: hidden;
+          transition: all 0.23s;
+          li {
+            margin: 2rem 1.5rem;
+            .link {
+              @include flex-row;
+              font-size: 1.4rem;
+              span {
+                margin-left: 1rem;
+              }
+            }
+          }
+        }
+        &:hover .sub-menu {
+          visibility: visible;
+          opacity: 1;
+        }
+      }
+    }
+  }
+  // search input for mobile devices--
+  .menu-search-form {
+    height: 0px;
+    width: 0%;
+    display: none;
+    border-radius: 4px;
+    padding: 0 1rem;
+    transition: all 0.5s;
+    @include tabletMedia {
+      display: block;
+    }
+    &.show {
+      width: 100%;
+      height: 50px;
+      background: $light-color;
+      display: flex;
+      align-items: center;
+    }
+
+    @include phoneMedia {
+      display: block;
+    }
+    input {
+      border: none;
+      display: inline-block;
+      outline: none;
+      background: $light-color;
+      border-radius: 4px;
+      font-size: 1.6rem;
+      font-family: $primary-font;
+      padding: 0 1.5rem;
+      width: 90%;
+      // height: 100%;
+    }
+    .icon {
+      height: 20px;
+      width: 20px;
+      cursor: pointer;
+      display: inline-block;
+
+      transition: all 0.23s;
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+  // hum burger menu--
+  .humburger {
+    display: none;
+    @include tabletMedia {
+      display: block;
+    }
+    .icon {
+      font-size: 3rem;
+      cursor: pointer;
+    }
+    .search-icon {
+      font-size: 2.5rem;
+      margin-right: 1rem;
+    }
+  }
+}

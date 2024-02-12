@@ -1,0 +1,148 @@
+//---DISPLAY FLEX---
+@import "./variables.scss";
+
+@mixin flex-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+@mixin flex-center {
+  @include flex-row;
+  justify-content: center;
+}
+@mixin flex-between {
+  @include flex-row;
+  justify-content: space-between;
+}
+@mixin flex-col {
+  @include flex-row;
+  justify-content: center;
+  flex-direction: column;
+}
+
+// MEDIA FOR RESPONSIVENESS--
+@mixin tabletMedia {
+  @media (max-width: 900px) {
+    @content;
+  }
+}
+@mixin phoneMedia {
+  @media (max-width: 650px) {
+    @content;
+  }
+}
+// FORM STYLES--
+@mixin form-style {
+  .input-div {
+    position: relative;
+    width: 500px;
+    height: 50px;
+    background: $light-color;
+    margin: 1rem 0;
+    @include flex-between;
+    border-radius: 0.4rem;
+    @include phoneMedia {
+      width: 100%;
+    }
+
+    input,
+    select,
+    .input {
+      border: none;
+      outline: none;
+      min-width: 80%;
+      height: 100%;
+      background: $light-color;
+      font-size: 1.7rem;
+      font-family: $primary-font;
+      flex: 1;
+      padding: 0 1.5rem;
+      border-radius: 4px;
+    }
+    .eye-open,
+    .eye-close,
+    .icon {
+      font-size: 2rem;
+      margin: 0 1rem;
+      cursor: pointer;
+      transition: $transition;
+    }
+  }
+  .file-input-div {
+    display: flex;
+    align-items: center;
+    input {
+      padding: 0 !important;
+    }
+
+    .file-input::-webkit-file-upload-button {
+      border: none;
+      outline: none;
+      cursor: pointer;
+      margin-right: 1rem;
+      display: inline-block;
+      background: $light-color;
+      color: white;
+      height: 100%;
+    }
+  }
+  .input-textarea-div {
+    width: 500px;
+    height: 150px;
+    textarea {
+      width: 100%;
+      height: 100%;
+      overflow-y: auto;
+      border: none;
+      outline: none;
+      background: transparent;
+      padding: 1rem;
+      font-size: 1.6rem;
+      resize: none;
+      background: $light-color;
+      border-radius: 4px;
+    }
+    @include phoneMedia {
+      width: 100%;
+    }
+  }
+  .image-preview-div {
+    width: 500px;
+    overflow-x: auto;
+    .image-preview {
+      width: 100px;
+      height: 100px;
+      display: inline-block;
+      margin: 1rem 0;
+      margin-right: 0.5rem;
+      border-radius: 4px;
+      overflow: auto;
+    }
+    @include phoneMedia {
+      width: 100%;
+    }
+  }
+  button {
+    width: 500px;
+    height: 50px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    font-size: 1.7rem;
+    padding: 0 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    color: white;
+    font-family: $primary-font;
+    border-radius: 4px;
+    background: $dark-color;
+    transition: $transition;
+    &:hover {
+      opacity: 0.9;
+      transform: translateY(2px);
+    }
+    @include phoneMedia {
+      width: 100%;
+    }
+  }
+}

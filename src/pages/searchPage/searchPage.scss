@@ -1,0 +1,111 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixin.scss";
+
+.search-page {
+  width: 100%;
+  padding: 5rem 6rem;
+  display: flex;
+  align-items: flex-start;
+  @include tabletMedia {
+    padding: 5rem 2rem;
+    @include flex-col;
+  }
+
+  .left-side {
+    width: 30%;
+    @include flex-col;
+    align-items: flex-start;
+    @include tabletMedia {
+      width: 100%;
+      padding: 0 10rem;
+    }
+    @include phoneMedia {
+      padding: 0;
+    }
+
+    .type-filter-box,
+    .features-filter-box,
+    .sort-filter-box {
+      @include flex-row;
+      span {
+        font-size: 1.6rem;
+        font-weight: bold;
+        font-family: $primary-font;
+      }
+      .input-div {
+        @include flex-row;
+        margin: 2rem 1rem;
+        input {
+          font-size: 1.6rem;
+          width: 20px;
+          height: 20px;
+        }
+        label {
+          font-size: 1.6rem;
+          margin-left: 0.5rem;
+          font-family: $primary-font;
+        }
+      }
+    }
+    button {
+      border: none;
+      outline: none;
+      height: 50px;
+      background: $dark-color;
+      width: 100%;
+      border-radius: 4px;
+      color: white;
+      font-family: $primary-font;
+      font-size: 1.6rem;
+      cursor: pointer;
+      transition: all 0.23s;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+  .right-side {
+    width: 70%;
+    border-left: 1px solid #eee;
+    margin-left: 1rem;
+    min-height: 100vh;
+    max-height: auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include tabletMedia {
+      width: 100%;
+      border-left: none;
+    }
+
+    .cards {
+      display: flex;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .load-more-btn {
+      font-size: 1.6rem;
+      font-family: $primary-font;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      background: transparent;
+      transition: all 0.23s ease-in-out;
+      border: 2px solid $dark-color;
+      padding: 0.8rem 2rem;
+      border-radius: 20px;
+      margin: 2rem 0;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+    .not-found-text {
+      font-size: 3rem;
+      color: red;
+      font-family: $primary-font;
+    }
+  }
+}
