@@ -9,7 +9,7 @@ import LoginIcon from "@mui/icons-material/Login";
 import { useSelector } from "react-redux";
 
 // eslint-disable-next-line react/prop-types
-const Menubar = ({ showMenu }) => {
+const Menubar = ({ showMenu, signoutHandler }) => {
   const { isAuthenticated } = useSelector((state) => state.userReducer);
 
   return (
@@ -51,7 +51,11 @@ const Menubar = ({ showMenu }) => {
           ) : (
             <LoginIcon className="icon" />
           )}
-          {isAuthenticated && <span className="link">Sign Out</span>}
+          {isAuthenticated && (
+            <span className="link" onClick={signoutHandler}>
+              Sign Out
+            </span>
+          )}
           {!isAuthenticated && (
             <Link to={"/signin"} className="link">
               Sign In

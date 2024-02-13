@@ -7,10 +7,7 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import CreateIcon from "@mui/icons-material/Create";
 import { backendUrl } from "./../../../helper";
 import { useDispatch } from "react-redux";
-import {
-  signInFailAction,
-  signInSuccessAction,
-} from "../../redux/reducers/userReducer";
+import { signInFailAction } from "../../redux/reducers/userReducer";
 import ApartmentIcon from "@mui/icons-material/Apartment";
 import {
   errorMessageAction,
@@ -43,6 +40,7 @@ const Navbar = () => {
       if (response.ok) {
         dispatch(signInFailAction());
         dispatch(successMessageAction(data.message));
+        navigate("/");
       } else {
         dispatch(errorMessageAction(data.message));
       }
@@ -72,10 +70,8 @@ const Navbar = () => {
         credentials: "include",
       };
       const response = await fetch(url, options);
-      const data = await response.json();
-      if (response.ok) {
-        dispatch(signInSuccessAction(data.user));
-      } else {
+      await response.json();
+      if (!response.ok) {
         dispatch(signInFailAction());
       }
     };
@@ -187,7 +183,7 @@ const Navbar = () => {
               <CloseIcon className="icon" onClick={toggleMenuHandler} />
             )}
           </div>
-          <Menubar showMenu={toggleMenu} />
+          <Menubar showMenu={toggleMenu} signoutHandler={signoutHandler} />
         </>
       )}
     </nav>

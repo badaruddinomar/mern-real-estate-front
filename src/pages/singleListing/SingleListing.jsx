@@ -112,7 +112,7 @@ const SingleListing = () => {
             </div>
           </div>
           {/* contact section-- */}
-          {user._id !== listing?.user?._id && (
+          {user?._id !== listing?.user?._id && (
             <div className="contact-section">
               <form>
                 <textarea
@@ -121,12 +121,18 @@ const SingleListing = () => {
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                 />
-                <Link
-                  className="button"
-                  to={`mailto:${listing?.user?.email}?subject=Regarding ${listing?.name}&body=${message}`}
-                >
-                  Send Message
-                </Link>
+                {user ? (
+                  <Link
+                    className="button"
+                    to={`mailto:${listing?.user?.email}?subject=Regarding ${listing?.name}&body=${message}`}
+                  >
+                    Send Message
+                  </Link>
+                ) : (
+                  <Link className="button" to={`/signin`}>
+                    Send Message
+                  </Link>
+                )}
               </form>
             </div>
           )}
