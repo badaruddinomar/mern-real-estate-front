@@ -42,7 +42,7 @@ const Menubar = ({ showMenu, signoutHandler }) => {
             className="link"
             to={`${isAuthenticated ? "/all-listing" : "/signin"}`}
           >
-            Edit Listing
+            All Listing
           </Link>
         </li>
         <li>
